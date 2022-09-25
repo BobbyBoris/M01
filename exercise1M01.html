@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Porter";
+        src: url(./Porter\ Bold\ DEMO\ 700.ttf);
+    }
+    body {
+        height: 100%;
+        background: linear-gradient(to bottom left, #2c8e0e 20%, #c7f024 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding-left: 50px;
+        padding-top: 30px;
+    }
+    .main {
+        font-family: Porter;
+        font-size: 20px;
+        color: #133d06;
+    }
+    input[type='number']{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 10px;
+        background-color: rgba(255, 248, 183, 0.888);
+    }
+    label {
+        font-size: 20px;
+    }
+    button {
+        font-size: 15px;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 30px;
+        background-color: rgb(120, 57, 25);  
+    }
+    .nh {
+        color: rgb(107, 9, 9);
+    }
+</style>
+
+<body>
+    <div class="main">
+        <label for="uts"> UTS&emsp;&emsp;&ensp;: <input type="number" id="uts"></label>
+        <br>
+        <br>
+        <label for="uas"> UAS&emsp;&emsp;&ensp;: <input type="number" id="uas"></label>
+        <br>
+        <br>
+        <label for="tugas">TUGAS&emsp;&nbsp;&nbsp;: <input type="number" id="tugas"></label>
+        <br>
+        <br>
+
+        <button id="hasil">Lihat Nilai Huruf</button>
+        <p>Nilai Huruf : <span id="nh" class="nh"></span></p>
+    </div>
+
+    <script>
+        let hasil = document.getElementById("hasil")
+        hasil.onclick = function(){
+            let uts = document.getElementById("uts")
+            let uas = document.getElementById("uas")
+            let tugas = document.getElementById("tugas")
+            let nh = document.getElementById("nh")
+
+            let nilai_huruf
+            let hasil = (uts.value * 30 / 100) + (uas.value * 30 / 100) + (tugas.value * 40 / 100)
+
+            if (hasil >= 80) {
+                nilai_huruf = "A"
+            }
+            else if (hasil >= 70) {
+                nilai_huruf = "B"
+            }
+            else if (hasil >= 60) {
+                nilai_huruf = "C"
+            }
+            else if (hasil >= 40) {
+                nilai_huruf = "D"
+            }
+            else {
+                nilai_huruf = "E"
+            }
+            nh.innerHTML = nilai_huruf
+        }
+    </script>
+</body>
+</html>

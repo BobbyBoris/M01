@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+</head>
+
+<style>
+    @font-face {
+        font-family: "Porter";
+        src: url(./Porter\ Bold\ DEMO\ 700.ttf);
+    }
+    body {
+        height: 100%;
+        background: linear-gradient(to bottom left, #2c8e0e 20%, #c7f024 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding-left: 50px;
+        padding-top: 30px;
+    }
+    .main {
+        font-family: Porter;
+        font-size: 20px;
+        color: #133d06;
+    }
+    input[type='number']{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        padding: 10px 10px;
+        background-color: rgba(255, 248, 183, 0.888);
+    }
+    button {
+        font-size: 20px;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 30px;
+        background-color: rgb(120, 57, 25);  
+    }
+    .bmi {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        color: rgb(107, 9, 9);
+    }
+</style>
+
+<body>
+    <div class="main">
+        <label>Berat badan :</label>
+        <input type="number" id="bb"><br>
+        <br>
+        <label>Tinggi badan :</label>
+        <input type="number" id="tb"><br>
+        <br>
+        <br>
+        <button id="submit">Submit</button>
+        <br>
+        <br>
+        <p>BMI = <span id="bmi" class="bmi"></span></p>
+        <p>Kategori = <span id="kat" class="bmi"></span></p>
+    </div>
+
+    <script>
+        let submit = document.getElementById("submit")
+        submit.onclick = function(){
+            let bb = document.getElementById('bb');
+            let tb = document.getElementById('tb');
+            let bmi = document.getElementById('bmi');
+            let kat = document.getElementById('kat');
+
+            let Kategori
+            let hasil = bb.value / tb.value**2
+            console.log(hasil);
+            if (hasil < 15 ){
+                Kategori = "Berat badan sangat kurang"
+            }
+            else if (hasil <= 18.49){
+                Kategori = "Berat badan kurang (underweight)"
+            }
+            else if (hasil <= 23.99){
+                Kategori = "Normal"
+            }
+            else if (hasil <= 29){
+                Kategori = "Kelebihan berat badan (overweight)"
+            }
+            else{
+                Kategori = "Obesitas"
+            }
+            bmi.innerHTML = hasil.toFixed(4)
+            kat.innerHTML = Kategori
+        }
+    </script>
+</body>
+</html>

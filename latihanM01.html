@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punny Web</title>
+</head>
+<style>
+    @font-face {
+        font-family: "Porter";
+        src: url(./Porter\ Bold\ DEMO\ 700.ttf);
+    }
+    body {
+        height: 100%;
+        background: linear-gradient(to bottom left, #2c8e0e 20%, #c7f024 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .main {
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 20px;
+    }
+    h1 {
+        color: rgb(197, 249, 120);
+        font-family: "Porter";
+    }
+    .email {
+        text-align: center;
+        font-size: 15px;
+        padding: 10px 100px;
+        background-color: rgba(255, 248, 183, 0.888);
+    }
+    button {
+        font-size: 15px;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 30px;
+        background-color: rgb(120, 57, 25);    
+    }
+</style>
+<body>
+    <div class="main">
+        <h1>Punny Web</h1>
+        <p>Website akan segera dapat diakses lengkap
+        <br>
+        pada 10/10/2021
+        <br>
+        Now : <span id="now">tanggal</span>
+        </p>
+
+        <input type="email" class="email" id="user_email" placeholder="name@example.com">
+
+        <br>
+        <br>
+        
+        <button id="notif"> Get Notification </button>
+    </div>
+    <script>
+        let tanggal = new Date(Date.now()),
+        now = document.getElementById("now")
+        now.innerHTML = tanggal.toLocaleDateString()
+
+        let notif = document.getElementById("notif")
+        notif.onclick = function(){
+            let user_email = document.getElementById("user_email").value
+            alert("Kami akan memberikan notifikasi ke "+user_email+". Terima kasih")
+        }
+    </script>
+</body>
+</html>
